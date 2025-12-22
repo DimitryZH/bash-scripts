@@ -1,0 +1,70 @@
+AWS Resource Tracker Report
+Generated on: Wed 03 Jul 2024 05:17:49 PM UTC
+========================================
+
+
+####################################
+# S3 Buckets
+####################################
+Listing all S3 buckets:
+2024-02-26 17:30:51 cf-templates-lbcyu714ap34-us-east-1
+2023-12-08 16:52:37 elasticbeanstalk-us-east-1-339564308086
+2023-12-13 17:36:34 elasticbeanstalk-us-east-2-339564308086
+2023-12-08 16:47:51 my-flask-application-packages
+
+
+####################################
+# EC2 Instances
+####################################
+Listing all EC2 instances:
+InstanceID   InstanceType    State    LaunchTime     AvailabilityZone    PlatformDetails     Name
+i-08360dc5429a904f1 t2.micro stopped 2024-05-24T14:06:08+00:00 us-east-1d Linux/UNIX Node_Exporter_Ubuntu_Server
+i-0b182b9d054763111 t2.micro stopped 2024-05-24T14:06:04+00:00 us-east-1d Linux/UNIX Prometheus_Ubuntu_Server
+i-0472bfd477a37b970 t2.micro running 2024-06-07T14:21:04+00:00 us-east-1d Windows Windows_Server_2019
+i-0f9b2e06a80f7ec18 t2.micro stopped 2024-05-24T19:13:12+00:00 us-east-1d Windows Windows_Server_DC_2022
+
+
+####################################
+# Lambda Functions
+####################################
+Listing all Lambda functions:
+RequestUnicorn nodejs16.x 2024-03-08T16:47:15.656+0000
+
+
+####################################
+# IAM Users
+####################################
+Listing all IAM users:
+Admin AIDAU6D44EZ3GLDW25RXH 2024-03-05T18:07:34+00:00
+admin1 AIDAU6D44EZ3MD5C5AYB5 2023-09-28T15:56:27+00:00
+admin2 AIDAU6D44EZ3BNRGW2PMD 2023-09-28T16:45:26+00:00
+github-actions AIDAU6D44EZ3PYMBX7GN3 2023-12-08T16:15:57+00:00
+
+
+####################################
+# DynamoDB Tables
+####################################
+Listing all DynamoDB tables:
+Rides
+
+
+####################################
+# Route53 Hosted Zones
+####################################
+Listing all Route53 hosted zones:
+/hostedzone/Z0190958W1IEG9GRH9DY dmitry-web.com. 10
+
+
+####################################
+# AWS Amplify Apps
+####################################
+Listing all AWS Amplify apps:
+d17jnq14ct7k9g AWS_simple_webpage_hosting 2023-09-29T20:16:09.981000+00:00 2023-09-29T20:41:56.370000+00:00
+d2nrvfm4dvaefs portfolio 2024-04-01T20:21:23.596000+00:00 2024-04-01T20:21:24.320000+00:00
+defv7xmhusdzr wildrydes-site 2024-03-07T17:52:30.233000+00:00 2024-03-07T17:52:30.913000+00:00
+
+
+####################################
+# EKS Clusters
+####################################
+Listing all EKS clusters:
