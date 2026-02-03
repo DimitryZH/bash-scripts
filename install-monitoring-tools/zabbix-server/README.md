@@ -4,6 +4,12 @@
 
 This project demonstrates how to set up a Zabbix monitoring server on a CentOS 8 system, including the installation and configuration of PostgreSQL 14, necessary adjustments for CentOS 8 EOL, and Zabbix Server 7.0. This guide walks you through the necessary steps to get a fully functional Zabbix server.
 
+You can either follow the manual steps below or use the automation script in this directory:
+
+- [`install_zabbix_centos8.sh`](install_zabbix_centos8.sh)
+
+The script closely follows the commands documented in the sections that follow.
+
 ## Steps
 
 ### Step 1: Install PostgreSQL 14
