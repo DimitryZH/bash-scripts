@@ -10,16 +10,31 @@ The AWS Resource Tracker is a shell script designed to generate a detailed repor
 
 ## Usage
 
-1. Ensure you have AWS CLI and jq installed on your system.
-2. Clone this repository or download the `resource_tracker.sh` script.
-3. Make the script executable: `chmod +x resource_tracker.sh`.
-4. Run the script: `./resource_tracker.sh`.
+1. Ensure you have AWS CLI and `jq` installed on your system.
+2. From the root of this repository, navigate to the module directory:
+
+   ```bash
+   cd aws-resource-tracker
+   ```
+
+3. Make the script executable:
+
+   ```bash
+   chmod +x resource_tracker.sh
+   ```
+
+4. Run the script:
+
+   ```bash
+   ./resource_tracker.sh
+   ```
+
 5. Check the generated report named `resourceTracker` for the output.
 
 ## Prerequisites
 
 - AWS CLI configured with appropriate permissions to list resources across the services mentioned.
-- jq for parsing and formatting the output from AWS CLI commands.
+- `jq` for parsing and formatting the output from AWS CLI commands.
 
 ## Output
 
@@ -28,3 +43,8 @@ The script generates a report named `resourceTracker`, which includes sections f
 ## Customization
 
 You can customize the script by modifying the `region` variable to track resources in a different AWS region or by adding/removing sections to include other AWS services as per your requirements.
+
+## Repository Context
+
+This script is part of the Bash Automation Scripts Collection. For an overview of all available modules and contribution guidelines, see the root [`README.md`](../README.md).
+
