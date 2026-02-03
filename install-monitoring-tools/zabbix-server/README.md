@@ -4,11 +4,41 @@
 
 This project demonstrates how to set up a Zabbix monitoring server on a CentOS 8 system, including the installation and configuration of PostgreSQL 14, necessary adjustments for CentOS 8 EOL, and Zabbix Server 7.0. This guide walks you through the necessary steps to get a fully functional Zabbix server.
 
-You can either follow the manual steps below or use the automation script in this directory:
+You can either:
 
-- [`install_zabbix_centos8.sh`](install_zabbix_centos8.sh)
+- Use the **automation script** in this directory for a one-shot installation, or
+- Follow the **manual steps** below for a step-by-step setup.
 
-The script closely follows the commands documented in the sections that follow.
+### Quick start (automated script)
+
+From a CentOS 8 host, run:
+
+```bash
+cd install-monitoring-tools/zabbix-server
+chmod +x install_zabbix_centos8.sh
+sudo ./install_zabbix_centos8.sh <zabbix_db_password>
+```
+
+The [`install_zabbix_centos8.sh`](install_zabbix_centos8.sh) script will:
+
+- Build and configure PostgreSQL 14 under `/usr/local/pgsql`.
+- Create the Zabbix database and user with the password you pass as an argument.
+- Update CentOS 8 repositories to point at `vault.centos.org`.
+- Install Zabbix Server 7.0, web frontend, Nginx, and the Zabbix agent.
+- Import the Zabbix database schema.
+- Configure `/etc/zabbix/zabbix-server.conf` with the correct DB settings.
+- Configure Nginx to serve Zabbix on port `8080`.
+- Enable and start `zabbix-server`, `zabbix-agent`, `nginx`, and `php-fpm`.
+
+After the script finishes, open:
+
+```text
+http://your_IP:8080/
+```
+
+and follow the web-based installer to complete the frontend setup.
+
+The sections below document the equivalent **manual** procedure.
 
 ## Steps
 
