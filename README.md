@@ -28,6 +28,9 @@ Each subdirectory is self-contained and includes its own `README.md` with usage 
 ├── gcp-startup-script/
 │   ├── startup.sh
 │   └── README.md
+├── gcp-finops-platform-helpers/
+│   ├── scripts/
+│   └── README.md
 ├── install-monitoring-tools/
 │   ├── README.md
 │   ├── grafana-server/
@@ -54,6 +57,7 @@ Each subdirectory is self-contained and includes its own `README.md` with usage 
 | ------ | ---- | ---- | ----------- |
 | AWS Resource Tracker | `aws-resource-tracker/` | [README](aws-resource-tracker/README.md) | Discover and report on AWS resources across multiple services. |
 | Backup Automation | `bash-backup-automation/` | [README](bash-backup-automation/README.md) | Automated filesystem backups with logging, compression, and error handling. |
+| GCP FinOps Platform Helpers | `gcp-finops-platform-helpers/` | [README](gcp-finops-platform-helpers/README.md) | Reusable dry-run and deterministic GCP dataset helper scripts for FinOps validation workflows. |
 | GCP Startup Script | `gcp-startup-script/` | [README](gcp-startup-script/README.md) | Startup script for provisioning a GCP Compute Engine VM for a Flask app. |
 | Ubuntu Tools Installer | `install-ubuntu-packages/` | [README](install-ubuntu-packages/README.md) | One-shot installer for common Dev, DevOps, and security tooling on Ubuntu 22.04. |
 | Monitoring Tools | `install-monitoring-tools/` | [README](install-monitoring-tools/README.md) | Scripts and guides for Prometheus, Node Exporter, Grafana, and Zabbix. |
