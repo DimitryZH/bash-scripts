@@ -1,128 +1,135 @@
-# Bash Automation Scripts Collection
+# Bash DevOps Automation Toolkit
+
+A curated collection of reusable Bash modules for cloud infrastructure, secure cloud operations, AI-agent runtime diagnostics, FinOps validation, observability, and Linux administration.
 
 ## Overview
 
-This repository is a curated collection of Bash scripts for common DevOps and system administration tasks, including:
+This repository brings together self-contained Bash automation modules for practical DevOps, cloud, platform engineering, SRE, and Linux administration workflows.
 
-- Cloud infrastructure discovery and provisioning
-- Workstation / server bootstrap and tooling installation
-- Monitoring and observability stack setup
-- Backup automation
-- User lifecycle management on Linux servers
+The collection includes securedevelopment environments, AI Agents operational diagnostics, FinOps validation helpers, infrastructure discovery, observability tooling, system bootstrap automation, backup workflows, and Linux management.
 
-Each subdirectory is self-contained and includes its own `README.md` with usage details.
+Each module is maintained in its own directory and includes dedicated documentation covering its purpose, prerequisites, configuration, safety boundaries, and usage.
 
-## Repository Structure
+## Engineering Principles
+
+- Self-contained modules with dedicated documentation
+- Parameterized configuration instead of hard-coded environments
+- Read-only validation and dry-run modes where practical
+- Explicit confirmation before billable or mutating operations
+- No credentials, private keys, or secrets stored in the repository
+- Clear prerequisites, safety boundaries, and exit behavior
+- Reusable tooling generalized from real cloud and platform engineering work
+
+## Featured Modules
+
+| Module | Focus | Key Capabilities |
+| --- | --- | --- |
+| [GCP DevBox Toolkit](gcp-devbox-toolkit/README.md) | Secure remote development and validation environment on Google Cloud | Local GCP readiness checks, parameterized GCE provisioning, IAP-based SSH access, in-VM prerequisite validation, and timestamped evidence collection |
+| [OpenClaw Runtime Preflight](openclaw-runtime-preflight/README.md) | Operational validation for a containerized OpenClaw runtime | systemd and container checks, persistent storage validation, health and readiness probes, authenticated API validation, and control-plane inspection |
+| [DevClaw Operations Toolkit](devclaw-operations-toolkit/README.md) | Diagnostics for DevClaw multi-agent orchestration running with OpenClaw | Circuit-breaker investigation, resilience implementation inspection, state analysis, bounded file inventory, and optional runtime task-status probing |
+| [GCP FinOps Platform Helpers](gcp-finops-platform-helpers/README.md) | Repeatable Google Cloud FinOps validation workflows | Controlled dry-run execution, deterministic GCP test datasets, targeted cleanup, and post-cleanup verification |
+
+## Additional Modules
+
+| Module | Focus | Key Capabilities |
+| --- | --- | --- |
+| [Monitoring Tools](install-monitoring-tools/README.md) | Linux observability stack installation | Prometheus, Node Exporter, Grafana, and Zabbix setup guides and automation |
+| [AWS Resource Tracker](aws-resource-tracker/README.md) | AWS infrastructure discovery and reporting | Resource inventory across services including EC2, S3, Lambda, IAM, DynamoDB, Route 53, Amplify, and EKS |
+| [Ubuntu Tools Installer](install-ubuntu-packages/README.md) | Development and operations workstation bootstrap | One-shot installation of common DevOps, cloud, container, and security tooling on Ubuntu |
+| [Backup Automation](bash-backup-automation/README.md) | Filesystem backup workflows | Logging, archive creation, retention-oriented automation, and repeatable backup execution |
+| [GCP Startup Script](gcp-startup-script/README.md) | Compute Engine application bootstrap | Startup automation for provisioning a Google Cloud VM for a Flask application |
+| [User Management Script](user-management-script/README.md) | Linux account and SSH provisioning | Interactive user creation and SSH public-key configuration |
+
+## Start Here
+
+Start with the [GCP DevBox Toolkit](gcp-devbox-toolkit/README.md), the most complete end-to-end module in this repository.
+
+It demonstrates a full operational workflow:
 
 ```text
-.
-├── README.md
-├── aws-resource-tracker/
-│   ├── resource_tracker.sh
-│   ├── resourceTracker
-│   └── README.md
-├── bash-backup-automation/
-│   ├── backup_script.sh
-│   ├── LICENSE
-│   └── README.md
-├── gcp-startup-script/
-│   ├── startup.sh
-│   └── README.md
-├── gcp-finops-platform-helpers/
-│   ├── scripts/
-│   └── README.md
-├── install-monitoring-tools/
-│   ├── README.md
-│   ├── grafana-server/
-│   │   ├── install_grafana.sh
-│   │   └── README.md
-│   ├── prometheus-stack/
-│   │   ├── install_prometheus_ubuntu.sh
-│   │   ├── install_prometheus_node_exporter.sh
-│   │   └── README.md
-│   └── zabbix-server/
-│       └── README.md
-├── install-ubuntu-packages/
-│   ├── install_ubuntu_packages.sh
-│   └── README.md
-└── user-management-script/
-    ├── create_user_ssh_pub.sh
-    ├── LICENSE
-    └── README.md
+Local Google Cloud readiness
+        ↓
+Secure Compute Engine provisioning
+        ↓
+IAP-based SSH access
+        ↓
+In-VM environment validation
+        ↓
+Timestamped evidence collection
 ```
 
-## Modules
-
-| Module | Path | Docs | Description |
-| ------ | ---- | ---- | ----------- |
-| AWS Resource Tracker | `aws-resource-tracker/` | [README](aws-resource-tracker/README.md) | Discover and report on AWS resources across multiple services. |
-| Backup Automation | `bash-backup-automation/` | [README](bash-backup-automation/README.md) | Automated filesystem backups with logging, compression, and error handling. |
-| GCP FinOps Platform Helpers | `gcp-finops-platform-helpers/` | [README](gcp-finops-platform-helpers/README.md) | Reusable dry-run and deterministic GCP dataset helper scripts for FinOps validation workflows. |
-| GCP Startup Script | `gcp-startup-script/` | [README](gcp-startup-script/README.md) | Startup script for provisioning a GCP Compute Engine VM for a Flask app. |
-| Ubuntu Tools Installer | `install-ubuntu-packages/` | [README](install-ubuntu-packages/README.md) | One-shot installer for common Dev, DevOps, and security tooling on Ubuntu 22.04. |
-| Monitoring Tools | `install-monitoring-tools/` | [README](install-monitoring-tools/README.md) | Scripts and guides for Prometheus, Node Exporter, Grafana, and Zabbix. |
-| User Management Script | `user-management-script/` | [README](user-management-script/README.md) | Interactive user creation and SSH key provisioning for Linux hosts. |
-
-For detailed usage, refer to the `README.md` in each module directory.
-
-## Monitoring Stack Modules
-
-The `install-monitoring-tools/` directory groups several related monitoring components:
-
-- `grafana-server/` – Install and configure Grafana Server on Ubuntu, including Prometheus as a data source.
-- `prometheus-stack/` – Install Prometheus as a service, deploy Node Exporter, and configure a basic scrape configuration between them.
-- `zabbix-server/` – Step-by-step guide to running a Zabbix monitoring server with PostgreSQL on CentOS 8.
-
-See [`install-monitoring-tools/README.md`](install-monitoring-tools/README.md) for details.
+The module is designed for isolated remote development, containerized workloads, testing, migration experiments, and AI-assisted engineering sessions.
 
 ## Getting Started
 
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/bash-scripts.git
+git clone https://github.com/DimitryZH/bash-scripts.git
 cd bash-scripts
 ```
 
-Navigate to the directory of the script you want to use and follow the instructions in that module's `README.md`.
-
-### Common Pattern for Running Scripts
-
-Most scripts follow this general pattern:
+Open the README for the module you want to use:
 
 ```bash
-chmod +x ./script_name.sh
-sudo ./script_name.sh          # when root privileges are required
-./script_name.sh [arguments]   # when no elevation is needed
+cd gcp-devbox-toolkit
+less README.md
 ```
 
-Refer to each module’s documentation for script-specific arguments and prerequisites.
+Most executable scripts follow this general pattern:
 
-## Prerequisites
+```bash
+chmod +x ./scripts/script_name.sh
+./scripts/script_name.sh --help
+```
 
-Depending on the module you use, you may need some of the following:
+Some modules also support configuration files, dry-run modes, or explicitly enabled deep validation:
 
-- **Bash** (on a Unix-like system such as Ubuntu or CentOS)
-- **Root or sudo access** (for system-level install and configuration scripts)
-- **AWS CLI** – for `aws-resource-tracker`
-- **Google Cloud SDK** – for `gcp-startup-script`
-- **Docker / kubectl / Helm / etc.** – installed by `install-ubuntu-packages`
-- Internet access from the target machine to download packages and container images
+```bash
+./scripts/script_name.sh --config config/local.env
+./scripts/script_name.sh --dry-run
+```
 
-Each module’s `README.md` lists its own detailed prerequisites.
+Always review the module README before execution. Some operations require cloud permissions, elevated Linux privileges, access to local runtime state, or explicit confirmation before resources are changed or created.
 
+## General Prerequisites
+
+Requirements vary by module, but may include:
+
+- Bash 4 or later on Linux or another Unix-like environment
+- Google Cloud CLI or AWS CLI for cloud-specific modules
+- Docker, systemd, `curl`, `jq`, Git, or .NET for selected workflows
+- Root or `sudo` access for system-level installation and administration
+- Appropriate Google Cloud or AWS IAM permissions
+- Network access for package downloads, container image pulls, and cloud APIs
+
+Each module README defines its exact prerequisites, required permissions, configuration model, safety considerations, and expected output.
 
 ## Contributing
 
-Contributions are welcome. To add a new script or improve an existing one:
+Contributions and improvements are welcome.
 
-1. Fork the repository.
-2. Create a feature branch, for example:
+To add or update a module:
+
+1. Create a focused branch:
+
    ```bash
-   git checkout -b feature/new-script
+   git checkout -b feature/module-update
    ```
-3. Place your script in a dedicated subdirectory with its own `README.md`.
-4. Update this root `README.md` to include your module.
-5. Open a Pull Request with a clear description of the change.
 
+2. Keep the implementation in a dedicated, self-contained directory.
 
+3. Include a module-level `README.md` describing:
+
+   - purpose and scope;
+   - prerequisites;
+   - configuration;
+   - usage;
+   - safety boundaries;
+   - expected output or exit behavior.
+
+4. Avoid committing secrets, credentials, private keys, environment-specific tokens, or sensitive operational evidence.
+
+5. Update this root README when adding a new module.
+
+6. Open a pull request with a clear description of the changes and validation performed.
